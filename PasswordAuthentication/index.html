@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Authentication</title>
+</head>
+<body>
+
+<h2>User Authentication</h2>
+<form id="loginForm">
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+    <button type="submit">Login</button>
+</form>
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    var validUsername = 'user';
+    var validPassword = 'password';
+
+    if (username === validUsername && password === validPassword) {
+        alert('Login successful!');
+    } else {
+        alert('Invalid username or password. Please try again.');
+        
+    }
+});
+</script>
+
+</body>
+</html>
