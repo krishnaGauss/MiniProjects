@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    border: 2px solid green;
+    width: 100%;
+    min-height: 100%;
+    padding: 10%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: ;
+}
+
+
+.prebox{
+    border: 2px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.title{
+    border: 2px solid blue;
+    font-size: 3rem;
+    font-family:'Times New Roman', Times, serif;
+    margin-bottom: 1rem;
+
+}
