@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<style>
+  .error {
+    color: red;
+  }
+</style>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+<form id="registrationForm" action="#" method="post">
+  <label for="email">Email ID:</label><br>
+  <input type="text" id="email" name="email"><br>
+  <span id="emailError" class="error"></span><br>
+
+  <label for="phone">Phone Number:</label><br>
+  <input type="text" id="phone" name="phone"><br>
+  <span id="phoneError" class="error"></span><br>
+
+  <input type="submit" value="Submit">
+</form>
+
+<script>
+document.getElementById("registrationForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  var emailInput = document.getElementById("email").value.trim();
+  var phoneInput = document.getElementById("phone").value.trim();
+
+  // Validate email
+  if (!isValidEmail(emailInput)) {
+    document.getElementById("emailError").textContent = "Invalid email format.";
+    return;
+  } else {
+    document.getElementById("emailError").textContent = "";
+  }
+
+  if (!isValidPhoneNumber(phoneInput)) {
+    document.getElementById("phoneError").textContent = "Phone number should contain 10 digits only.";
+    return;
+  } else {
+    document.getElementById("phoneError").textContent = "";
+  }
+
+  alert("Submitted successfully");
+});
+
+function isValidEmail(email) {
+  var atIndex = email.indexOf('@');
+  var dotIndex = email.lastIndexOf('.');
+  
+  return atIndex > 0 && dotIndex > atIndex + 1 && dotIndex < email.length - 1;
+}
+
+function isValidPhoneNumber(phone) {
+  return /^\d{10}$/.test(phone);
+}
+</script>
+
+</body>
+</html>
