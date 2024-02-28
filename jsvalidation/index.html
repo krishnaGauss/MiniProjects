@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<style>
+  .error {
+    color: red;
+  }
+</style>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+<form id="registrationForm" action="#" method="post">
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="name"><br>
+  <span id="nameError" class="error"></span><br>
+
+  <label for="password">Password:</label><br>
+  <input type="password" id="password" name="password"><br>
+  <span id="passwordError" class="error"></span><br>
+
+  <input type="submit" value="Submit">
+</form>
+
+<script>
+document.getElementById("registrationForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  document.getElementById("nameError").textContent = "";
+  document.getElementById("passwordError").textContent = "";
+
+  var name = document.getElementById("name").value.trim();
+  var password = document.getElementById("password").value.trim();
+
+  if (name.length < 6 || !/^[a-zA-Z]+$/.test(name)) {
+    document.getElementById("nameError").textContent = "Name should contain alphabets only and be at least 6 characters long.";
+    return;
+  }
+
+  if (password.length < 5) {
+    document.getElementById("passwordError").textContent = "Password should be at least 5 characters long.";
+    return;
+  }
+
+  this.submit();
+  alert("Submitted successfully")
+});
+</script>
+
+</body>
+</html>
